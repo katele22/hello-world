@@ -22,8 +22,8 @@ def create_tree_meme():
         label_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 36)
         text_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 28)
         tree_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", 20)
-    except:
-        # Fall back to default font
+    except (OSError, IOError):
+        # Fall back to default font if custom fonts are not available
         title_font = ImageFont.load_default()
         label_font = ImageFont.load_default()
         text_font = ImageFont.load_default()
@@ -134,6 +134,7 @@ def create_tree_meme():
     
     # Save the image
     output_path = os.path.join(os.path.dirname(__file__), 'public', 'tree-meme.png')
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     img.save(output_path, 'PNG')
     print(f"Meme successfully created at: {output_path}")
     
