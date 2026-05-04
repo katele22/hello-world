@@ -1,26 +1,4 @@
-%% graph TD
-%%     subgraph Client_Layer [View - JSP]
-%%         A[Browser/User] -->|HTTP Request| B(JSTL/HTML Templates)
-%%     end
-
-%%     subgraph Spring_Framework [Controller & Security]
-%%         B -->|Form Data| C{Spring Security Bouncer}
-%%         C -->|Authorized| D[MVC Controllers]
-%%     end
-
-%%     subgraph Business_Layer [Service Layer]
-%%         D --> E[Business Services]
-%%     end
-
-%%     subgraph Persistence_Layer [Hibernate ORM]
-%%         E --> F[DAO - Data Access Objects]
-%%         F --> G[SessionFactory Singleton]
-%%         G --> H[(MySQL Database)]
-%%     end
-
-%%     style G fill:#f9f,stroke:#333,stroke-width:2px
-%%     style C fill:#fff4dd,stroke:#d4a017
-
+```mermaid
 graph TB
     subgraph Client_Layer [Client Layer]
         Browser[Web Browser]
@@ -72,3 +50,4 @@ graph TB
     style Security_Layer fill:#ff9,stroke:#333,stroke-width:2px
     style Persistence_Layer fill:#bbf,stroke:#333,stroke-width:2px
     style Data_Layer fill:#dfd,stroke:#333,stroke-width:2px
+```
